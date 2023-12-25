@@ -5,7 +5,7 @@ output: html_document
 
 ## Background for this activity
 
-In this activity, youâ€™ll review a scenario, and practice adding annotations to a data visualization with ggplot2. You will also learn how to save images from ggplot2 visualizations so that you can add them directly to presentations. 
+In this activity, you will review a scenario, and practice adding annotations to a data visualization with ggplot2. You will also learn how to save images from ggplot2 visualizations so that you can add them directly to presentations. 
 
 Throughout this activity, you will also have the opportunity to practice writing your own code by making changes to the code chunks yourself. If you encounter an error or get stuck, you can always check the Lesson4_Annotations_Solutions .rmd file in the Solutions folder under Week 4 for the complete, correct code. 
 
