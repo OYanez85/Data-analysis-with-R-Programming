@@ -15,7 +15,7 @@ As a junior data analyst for a hotel booking company, you have been creating vis
 
 ## Step 1: Import your data
 
-If you haven't exited out of RStudio since importing this data last time, you can skip these steps. Rerunning these code chunks won't affect your console if you want to run them just in case, though.  
+If you havent exited out of RStudio since importing this data last time, you can skip these steps. Rerunning these code chunks wont affect your console if you want to run them just in case, though.  
 
 If this line causes an error, copy in the line setwd("projects/Course 7/Week 4") before it.
 
@@ -39,9 +39,9 @@ colnames(hotel_bookings)
 
 ## Step 3: Install and load the 'ggplot2' and 'tidyverse' packages (optional)
 
-If you haven't already installed and loaded the `ggplot2` package, you will need to do that before you can use the `ggplot()` function. You only have to do this once though, not every time you call `ggplot()`.
+If you havent already installed and loaded the `ggplot2` package, you will need to do that before you can use the `ggplot()` function. You only have to do this once though, not every time you call `ggplot()`.
 
-You can also skip this step if you haven't closed your RStudio account since doing the last activity. If you aren't sure, you can run the code chunk and hit 'cancel' if the warning message pops up telling you that have already downloaded the `ggplot2` package.
+You can also skip this step if you havent closed your RStudio account since doing the last activity. If you arent sure, you can run the code chunk and hit 'cancel' if the warning message pops up telling you that have already downloaded the `ggplot2` package.
 
 Run the code chunk below to install and load `ggplot2`. This may take a few minutes!
 
@@ -50,7 +50,7 @@ install.packages('ggplot2')
 library(ggplot2)
 ```
 
-If you haven't installed and loaded tidyverse in this RStudio session, you can run the code chunk below. This may take a few minutes!
+If you havent installed and loaded tidyverse in this RStudio session, you can run the code chunk below. This may take a few minutes!
 
 ```{r install and download tidyverse}
 install.packages('tidyverse')
@@ -77,7 +77,7 @@ The first step will be adding a title; that is often the first thing people will
 ggplot(data = hotel_bookings) +
   geom_bar(mapping = aes(x = market_segment)) +
   facet_wrap(~hotel) +
-  labs(title="")
+  labs(title="Comparison of market segments by hotel type for hotel bookings")
 ```
 
 This code chunk will generate the same chart as before, but now it includes a title to explain the data visualization more clearly to your audience. 
@@ -101,25 +101,23 @@ mindate <- min(hotel_bookings$arrival_date_year)
 maxdate <- max(hotel_bookings$arrival_date_year)
 ```
 
-Now, you will add in a subtitle using `subtitle=` in the `labs()` function. Then, you can use the `paste0()` function to use your newly-created variables in your labels. This is really handy, because if the data gets updated and there is more recent data added, you don't have to change the code below because the variables are dynamic:
+Now, you will add in a subtitle using `subtitle=` in the `labs()` function. Then, you can use the `paste0()` function to use your newly-created variables in your labels. This is really handy, because if the data gets updated and there is more recent data added, you dont have to change the code below because the variables are dynamic:
 
 ```{r city bar chart with timeframe}
 ggplot(data = hotel_bookings) +
   geom_bar(mapping = aes(x = market_segment)) +
   facet_wrap(~hotel) +
-  theme(axis.text.x = element_text(angle = 45)) +
   labs(title="Comparison of market segments by hotel type for hotel bookings",
        subtitle=paste0("Data from: ", mindate, " to ", maxdate))
 ```
 This code chunk will add the subtitle 'Data from: 2015 to 2017' underneath the title you added earlier to the chart. 
 
-You realize that this chart is displaying the technical details a little too prominently. You don't want that to be the second thing people notice during the presentation. You decide to switch the `subtitle`  to a `caption` which will appear in the bottom right corner instead.
+You realize that this chart is displaying the technical details a little too prominently. You dont want that to be the second thing people notice during the presentation. You decide to switch the `subtitle`  to a `caption` which will appear in the bottom right corner instead.
 
 ```{r city bar chart with timeframe as caption}
 ggplot(data = hotel_bookings) +
   geom_bar(mapping = aes(x = market_segment)) +
   facet_wrap(~hotel) +
-  theme(axis.text.x = element_text(angle = 45)) +
   labs(title="Comparison of market segments by hotel type for hotel bookings",
        caption=paste0("Data from: ", mindate, " to ", maxdate))
 ```
@@ -131,7 +129,6 @@ Now you want to clean up the x and y axis labels to make sure they are really cl
 ggplot(data = hotel_bookings) +
   geom_bar(mapping = aes(x = market_segment)) +
   facet_wrap(~hotel) +
-  theme(axis.text.x = element_text(angle = 45)) +
   labs(title="Comparison of market segments by hotel type for hotel bookings",
        caption=paste0("Data from: ", mindate, " to ", maxdate),
        x="Market Segment",
@@ -141,7 +138,7 @@ Now you have the data visualization from earlier, but now the x and y axis label
 
 ## Step 5: Saving your chart
 
-Now, it's time to save what you just created so you can easily share with stakeholders.
+Now, its time to save what you just created so you can easily share with stakeholders.
 
 You can use the `ggsave()` function to do just that! It will save your image as a 7x7 at the file path you input by default, which makes it simple to export your plots from R.  
 
@@ -165,8 +162,8 @@ If you wanted to make your chart bigger and more rectangular to fit the slide sh
 
 ```{r save your plot}
 ggsave('hotel_booking_chart.png',
-       width=,
-       height=)
+       width=16,
+       height=8)
 ```
 
 ## Activity Wrap Up
