@@ -1,0 +1,64 @@
+---
+title: "ggplot_hook"
+author: "Oscar"
+date: "2023-12-26"
+output: html_document
+---
+# Index
+Heres a breakdown of what this R Markdown document contains:
+
+* 1. **YAML Header:** This includes metadata like the title and the output format (`html_document`), which is standard for R Markdown documents.
+
+* 2. **Plot Sections:** Each plot has its own section with a title and a code chunk. The code chunk is enclosed in triple backticks with `{r}` to indicate its R code. Options like `echo=TRUE` ensure the code is displayed in the document, and `message=FALSE` suppresses additional messages that might clutter your presentation.
+
+* 3. **Library Calls:** Necessary library calls (`ggplot2` and `dplyr`) are included. For the last plot, `library(dplyr)` is included within the code chunk since `dplyr` functions are used.
+
+* 4. **Code for Plots:** The `ggplot2` code you provided is included within these sections, creating different types of plots with the `penguins` dataset.
+
+When you knit this document in RStudio, it will produce an HTML file with your plots and descriptions, which you can then present to stakeholders.
+
+
+## Setting up my environment
+Notes: setting up my R environment by loading the 'tidyverse' and 'palmer penguins' packages
+
+```{r loading packages}
+library(tidyverse)
+library(palmerpenguins)
+```
+## Exploratory analysis
+```{r exploring data}
+glimpse(penguins)
+
+```
+## Plot 1: Points in Purple
+
+```{r plot1, echo=TRUE, message=FALSE}
+library(ggplot2)
+library(palmerpenguins)
+ggplot(data=penguins, aes(x=flipper_length_mm, y=body_mass_g)) +
+  geom_point(color="purple")
+```
+## Plot 2: Points by Species Shape
+```{r}
+ggplot(data=penguins, aes(x=flipper_length_mm, y=body_mass_g)) +
+  geom_point(aes(shape=species))
+
+```
+## Plot 3: Points Colored and Shaped by Species
+```{r}
+ggplot(data=penguins, aes(x=flipper_length_mm, y=body_mass_g)) +
+  geom_point(aes(color=species, shape=species)) +
+  facet_wrap(~sex)
+
+```
+## Plot 4: Points Colored and Shaped by Species, Excluding Missing Sex
+```{r}
+library(dplyr)
+penguins %>%
+  drop_na(sex) %>%
+  ggplot(aes(x=flipper_length_mm, y=body_mass_g)) +
+  geom_point(aes(color=species, shape=species)) +
+  facet_wrap(~sex)
+
+```
+
